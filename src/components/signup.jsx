@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import {
   TextField,
   Button,
@@ -33,7 +34,7 @@ export default function Signup() {
 
   const handleSignup = () => {
     // Add logic for handling signup
-    const backendUrl = "https://intern-assessment-backend-hardik-daim";
+    const backendUrl = "http://localhost:3001";
 
     fetch(`${backendUrl}/api/signup`, {
       method: "POST",
@@ -73,10 +74,7 @@ export default function Signup() {
     }
     setOpenErrorAlert(false);
   };
-  const handleLogin = (e) => {
-    e.preventDefault();
-    window.location.href = '/login';
-  }
+
   return (
     <>
       <Header />
@@ -175,11 +173,10 @@ export default function Signup() {
                 }}
               >
                 Already have an account?{' '}
-                <span
-                onClick={handleLogin}
+                <Link to="/login"
                 style={{ textDecoration: 'none', color: '#90caf9', cursor: 'pointer', fontWeight:"700" }}                >
                   Login Now
-                </span>
+                </Link>
               </Typography>
             </Grid>
             <Grid

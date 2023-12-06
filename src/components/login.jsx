@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import {
   TextField,
   Button,
@@ -30,7 +31,7 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    const backendUrl = "https://intern-assessment-backend-hardik-daim.onrender.com";
+    const backendUrl = "http://localhost:3001";
 
     fetch(`${backendUrl}/api/login`, {
       method: "POST",
@@ -69,10 +70,6 @@ export default function Login() {
       return;
     }
     setOpenErrorAlert(false);
-  };
-  const handleSignup = (e) => {
-    e.preventDefault();
-    window.location.href = '/';
   };
   return (
     <>
@@ -157,8 +154,7 @@ export default function Login() {
                 }}
               >
                 Don't have an account?{" "}
-                <span
-                  onClick={handleSignup}
+                <Link to="/"
                   style={{
                     textDecoration: "none",
                     color: "#90caf9",
@@ -167,7 +163,7 @@ export default function Login() {
                   }}
                 >
                   SignUp Now
-                </span>
+                </Link>
               </Typography>
             </Grid>
             <Grid
