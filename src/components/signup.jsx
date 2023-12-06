@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
 import {
   TextField,
   Button,
-  Container,
   Grid,
   Typography,
-  Link,
   Snackbar,
   Alert,
   Paper,
@@ -15,7 +12,6 @@ import Header from "./header.jsx"
 import LoginIcon from '@mui/icons-material/Login';
 import Lottie from "lottie-react";
 import SignupAnimation from '../animations/Signup-Animation.json'
-import Footer from "./footer.jsx";
 
 export default function Signup() {
   const [credentials, setCredentials] = useState({
@@ -199,7 +195,6 @@ export default function Signup() {
                 color="primary"
                 sx={{
                   alignItems: "center",
-                  marginBottom: "1rem",
                   margin: "1rem",
                   textAlign: "center",
                   justifyContent: "center",
@@ -238,7 +233,6 @@ export default function Signup() {
           Error during signup. Please try again.
         </Alert>
       </Snackbar>
-      <Footer />
     </>
   );
 }

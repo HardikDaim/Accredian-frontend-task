@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
 import {
   TextField,
   Button,
-  Container,
   Grid,
   Typography,
-  Link,
   Snackbar,
   Alert,
   Paper,
 } from "@mui/material";
 import Lottie from "lottie-react";
 import Header from "./header.jsx";
-import Footer from "./footer.jsx";
 import LoginAnimation from "../animations/Login-Animation.json";
 import LoginIcon from "@mui/icons-material/Login";
 
@@ -185,7 +181,6 @@ export default function Login() {
                 endIcon={<LoginIcon />}
                 sx={{
                   alignItems: "center",
-                  marginBottom: "1rem",
                   margin: "1rem",
                   textAlign: "center",
                   justifyContent: "center",
@@ -221,7 +216,6 @@ export default function Login() {
           Invalid credentials. Please try again.
         </Alert>
       </Snackbar>
-      <Footer />
     </>
   );
 }
