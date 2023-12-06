@@ -33,7 +33,7 @@ export default function Signup() {
 
   const handleSignup = () => {
     // Add logic for handling signup
-    const backendUrl = "http://localhost:3001";
+    const backendUrl = "https://intern-assessment-backend-hardik-daim";
 
     fetch(`${backendUrl}/api/signup`, {
       method: "POST",
@@ -73,8 +73,9 @@ export default function Signup() {
     }
     setOpenErrorAlert(false);
   };
-  const handleLogin = () => {
-    window.open('/login', '_self');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    window.location.href = '/login';
   }
   return (
     <>

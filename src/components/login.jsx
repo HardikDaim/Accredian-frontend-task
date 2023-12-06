@@ -30,7 +30,7 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    const backendUrl = "http://localhost:3001";
+    const backendUrl = "https://intern-assessment-backend-hardik-daim.onrender.com";
 
     fetch(`${backendUrl}/api/login`, {
       method: "POST",
@@ -70,8 +70,9 @@ export default function Login() {
     }
     setOpenErrorAlert(false);
   };
-  const handleSignup = () => {
-    window.open("/", "_self");
+  const handleSignup = (e) => {
+    e.preventDefault();
+    window.location.href = '/';
   };
   return (
     <>
