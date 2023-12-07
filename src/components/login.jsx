@@ -7,12 +7,15 @@ import {
   Typography,
   Snackbar,
   Alert,
+  Divider,
   Paper,
 } from "@mui/material";
 import Lottie from "lottie-react";
 import Header from "./header.jsx";
 import LoginAnimation from "../animations/Login-Animation.json";
 import LoginIcon from "@mui/icons-material/Login";
+import GoogleIcon from "@mui/icons-material/Google";
+import AppleIcon from "@mui/icons-material/Apple";
 
 export default function Login() {
   const [credentials, setCredentials] = useState({
@@ -89,7 +92,7 @@ export default function Login() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} lg={6} sx={{ marginTop: "10rem" ,marginBottom:"4rem"}}>
+        <Grid item xs={12} lg={6} sx={{ marginTop: { xs: "5rem", lg: "10rem" } ,marginBottom:"4rem"}}>
           {/* Content for the right side */}
           <Typography
             sx={{
@@ -104,10 +107,10 @@ export default function Login() {
               backgroundClip: "text",
             }}
           >
-            Welcome to Accredian
+            Welcome Back 👋
           </Typography>
 
-          <Typography
+          {/* <Typography
             sx={{
               fontFamily: "'Roboto', sans-serif",
               textAlign: "center",
@@ -118,9 +121,39 @@ export default function Login() {
             }}
           >
             Login Now!
+          </Typography> */}
+  <Typography
+            sx={{
+              fontFamily: "'Roboto', sans-serif",
+              textAlign: "center",
+              marginBottom: "2rem",
+            }}
+          >
+            Enter your credentials to Login to your account
           </Typography>
-
-          <Grid container spacing={2}>
+          <Grid container spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={10} sm={5} md={5} lg={4} xl={3}>
+              <Button fullWidth variant="outlined" startIcon={<GoogleIcon />}>
+                Login with Google
+              </Button>
+            </Grid>
+            <Grid item xs={10} sm={5} md={5} lg={4} xl={3}>
+              <Button fullWidth variant="outlined" startIcon={<AppleIcon />}>
+                Login with Apple
+              </Button>
+            </Grid>
+            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+              <Divider
+                orientation="horizontal"
+                flexItem
+                sx={{ color: "gray", paddingTop: "1rem" }}
+              >
+                OR
+              </Divider>
+            </Grid>
             <Grid item xs={12} sx={{ marginBottom: "1rem", margin: "1rem" }}>
               <TextField
                 label="Username or Email"

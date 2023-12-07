@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -7,12 +7,15 @@ import {
   Typography,
   Snackbar,
   Alert,
+  Divider,
   Paper,
 } from "@mui/material";
-import Header from "./header.jsx"
-import LoginIcon from '@mui/icons-material/Login';
+import Header from "./header.jsx";
+import LoginIcon from "@mui/icons-material/Login";
 import Lottie from "lottie-react";
-import SignupAnimation from '../animations/Signup-Animation.json'
+import SignupAnimation from "../animations/Signup-Animation.json";
+import GoogleIcon from "@mui/icons-material/Google";
+import AppleIcon from "@mui/icons-material/Apple";
 
 export default function Signup() {
   const [credentials, setCredentials] = useState({
@@ -88,29 +91,49 @@ export default function Signup() {
           alignItems="center"
         >
           {/* Content for the left side */}
-          <Paper style={{ width: '75%', height: '60%' }}>
+          <Paper
+            sx={{
+              width: { xs: "65%", md: "75%", lg: "75%", xl: "75%" },
+              height: { xs: "65%", md: "65%", lg: "65%", xl: "65%" },
+              marginTop: { xs: "4rem", lg: "0rem" },
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             {/* Assuming you have the Lottie animation data */}
             {/* Replace `animationData={SignupAnimation}` with your actual animation data */}
             <Lottie animationData={SignupAnimation} />
           </Paper>
         </Grid>
 
-        <Grid item xs={12} lg={6} sx={{ marginTop: '10rem' }}>
+        <Grid
+          item
+          xs={12}
+          lg={6}
+          sx={{ marginTop: { xs: "5rem", lg: "10rem" } }}
+        >
           <Typography
             sx={{
               fontFamily: "'Roboto', sans-serif",
-              textAlign: 'center',
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              color: 'transparent',
-              background: 'linear-gradient(to right, #add8e6, #ffc0cb, #fffacd)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
+              textAlign: "center",
+              fontSize: {
+                xs: "2rem",
+                sm: "3rem",
+                md: "3rem",
+                lg: "3rem",
+                xl: "3rem",
+              },
+              fontWeight: "bold",
+              color: "transparent",
+              background:
+                "linear-gradient(to right, #add8e6, #ffc0cb, #fffacd)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
             }}
           >
             Welcome to Accredian
           </Typography>
-          <Typography
+          {/* <Typography
             sx={{
               fontFamily: "'Roboto', sans-serif",
               textAlign: 'center',
@@ -121,9 +144,42 @@ export default function Signup() {
             }}
           >
             SignUp Now!
+          </Typography> */}
+          <Typography
+            sx={{
+              fontFamily: "'Roboto', sans-serif",
+              textAlign: "center",
+              marginBottom: "2rem",
+            }}
+          >
+            Enter your credentials to create your account
           </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sx={{ marginBottom: '1rem', margin: '1rem' }}>
+          <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={10} sm={5} md={5} lg={4} xl={3}>
+              <Button fullWidth variant="outlined" startIcon={<GoogleIcon />}>
+                SignUp with Google
+              </Button>
+            </Grid>
+            <Grid item xs={10} sm={5} md={5} lg={4} xl={3}>
+              <Button fullWidth variant="outlined" startIcon={<AppleIcon />}>
+                SignUp with Apple
+              </Button>
+            </Grid>
+            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+              <Divider
+                orientation="horizontal"
+                flexItem
+                sx={{ color: "gray", paddingTop: "1rem" }}
+              >
+                OR
+              </Divider>
+            </Grid>
+            <Grid item xs={12} sx={{ marginBottom: "1rem", margin: "1rem" }}>
               <TextField
                 label="Username"
                 fullWidth
@@ -133,7 +189,7 @@ export default function Signup() {
                 onChange={handleInputChange}
               />
             </Grid>
-            <Grid item xs={12} sx={{ marginBottom: '1rem', margin: '1rem' }}>
+            <Grid item xs={12} sx={{ marginBottom: "1rem", margin: "1rem" }}>
               <TextField
                 label="Email"
                 fullWidth
@@ -143,7 +199,7 @@ export default function Signup() {
                 onChange={handleInputChange}
               />
             </Grid>
-            <Grid item xs={12} sx={{ marginBottom: '1rem', margin: '1rem' }}>
+            <Grid item xs={12} sx={{ marginBottom: "1rem", margin: "1rem" }}>
               <TextField
                 label="Password"
                 type="password"
@@ -154,7 +210,7 @@ export default function Signup() {
                 onChange={handleInputChange}
               />
             </Grid>
-            <Grid item xs={12} sx={{  margin: '1rem' }}>
+            <Grid item xs={12} sx={{ margin: "1rem" }}>
               <TextField
                 label="Confirm Password"
                 type="password"
@@ -165,16 +221,23 @@ export default function Signup() {
                 onChange={handleInputChange}
               />
             </Grid>
-            <Grid item xs={12} sx={{ marginBottom: '1rem', margin: '1rem' }}>
+            <Grid item xs={12} sx={{ marginBottom: "1rem", margin: "1rem" }}>
               <Typography
                 sx={{
                   fontFamily: "'Roboto', sans-serif",
-                  textDecoration: 'none',
+                  textDecoration: "none",
                 }}
               >
-                Already have an account?{' '}
-                <Link to="/login"
-                style={{ textDecoration: 'none', color: '#90caf9', cursor: 'pointer', fontWeight:"700" }}                >
+                Already have an account?{" "}
+                <Link
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: "#90caf9",
+                    cursor: "pointer",
+                    fontWeight: "700",
+                  }}
+                >
                   Login Now
                 </Link>
               </Typography>
@@ -197,7 +260,7 @@ export default function Signup() {
                   textAlign: "center",
                   justifyContent: "center",
                   justifyItems: "center",
-                  marginBottom:"4rem !important",
+                  marginBottom: "4rem !important",
                 }}
                 onClick={handleSignup}
                 // disabled={
